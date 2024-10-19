@@ -60,7 +60,7 @@ const LogIn = () => {
               required
             />
           </div>
-          <SubmitButton />
+          <SubmitButton>Log In</SubmitButton>
         </form>
       </div>
       {/* {accessToken && <p>Access token: {accessToken}</p>} */}

@@ -5,23 +5,24 @@ const SmartContractMinimized = ({
 }: {
   contract: {
     id: number;
-    title: string;
-    price: number;
-    images: string[];
-    receiver: {
+    amount: number;
+    status: string;
+    buyer: {
+      id: number;
       name: string;
     };
-    sender: {
-      name: string;
+    conditions: string;
+    product: {
+      id: number;
+      title: string;
+      images: string[];
     };
-    description: string;
-    tAndC: string;
   };
 }) => {
   return (
     <Link to={"/smartcontract/" + contract.id}>
       <div className="max-w-[1000px] mx-auto my-10 h-32 border-tbcBlue border-2 rounded-md flex flex-row justify-between px-10 items-center">
-        {contract.images.length === 0 ? (
+        {contract.product.images.length === 0 ? (
           <img
             src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ="
             alt="no image found"
@@ -29,7 +30,7 @@ const SmartContractMinimized = ({
           />
         ) : (
           <img
-            src={contract.images[0]}
+            src={contract.product.images[0]}
             alt="contract image"
             className="h-28 w-28 object-cover"
           />
@@ -38,11 +39,11 @@ const SmartContractMinimized = ({
         <div className="flex flex-col justify-center">
           <div className="flex flex-row justify-between gap-12 text-xl">
             <div>
-              <p>{contract.price} ₾</p>
+              <p>{contract.amount} ₾</p>
             </div>
             <div>
               <p>
-                from: <strong>{contract.sender.name}</strong>
+                from: <strong>{contract.buyer.name}</strong>
               </p>
             </div>
           </div>
