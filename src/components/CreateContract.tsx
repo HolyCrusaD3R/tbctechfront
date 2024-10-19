@@ -1,12 +1,14 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import SubmitButton from "../components/SubmitButton";
 import tempToken from "../assets/tempToken";
+import { Alert } from "@mui/material";
 
 const CreateContract = () => {
   const [conditions, setConditions] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
   const [productId, setProductId] = useState<number>(0);
+  const [alert, setAlert] = useState<string>("");
 
   const navigate = useNavigate(); // Initialize the hook
 
@@ -37,17 +39,37 @@ const CreateContract = () => {
       const data = await response.json();
 
       // Navigate to home after successful contract creation
+      setAlert("success");
       navigate("/");
     } catch (error) {
-      console.error(error.message);
+      //   console.error(error.message);
+      setAlert("error");
     }
   };
+
+  useEffect(() => {
+    if (alert !== "") {
+      const timer = setTimeout(() => {
+        setAlert(""); // Reset alert after 1 second
+      }, 3000);
+
+      return () => clearTimeout(timer); // Clean up the timer when the component unmounts or when alert changes
+    }
+  }, [alert]);
 
   return (
     <div className="max-w-3xl mx-auto mt-16 p-8 bg-white shadow-lg rounded-lg">
       <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Create Contract
       </h1>
+      {alert && (
+        <Alert severity={alert === "success" ? "success" : "error"}>
+          {alert === "success"
+            ? "Contract Created."
+            : "Contract Could Not Be Created."}
+        </Alert>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="block text-lg font-medium text-gray-700">
@@ -61,7 +83,6 @@ const CreateContract = () => {
             required
           />
         </div>
-
         <div>
           <label className="block text-lg font-medium text-gray-700">
             Amount:
