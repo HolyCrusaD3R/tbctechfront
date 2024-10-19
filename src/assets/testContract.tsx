@@ -10,10 +10,14 @@ const testContract = {
     images: [
       "http://134.122.73.198/storage/1/eos-r5_front_rf24-105mmf4lisusm_square_32c26ad194234d42b3cd9e582a21c99b.jpeg",
     ],
+    user: {
+      id: 1,
+      name: "Dato",
+    },
   },
   buyer: {
-    id: 1,
-    name: "Dato",
+    id: 2,
+    name: "Luka",
   },
 };
 
