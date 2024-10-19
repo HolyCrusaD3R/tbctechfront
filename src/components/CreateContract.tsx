@@ -1,4 +1,5 @@
 import { useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import SubmitButton from "../components/SubmitButton";
 import tempToken from "../assets/tempToken";
 
@@ -6,6 +7,8 @@ const CreateContract = () => {
   const [conditions, setConditions] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
   const [productId, setProductId] = useState<number>(0);
+
+  const navigate = useNavigate(); // Initialize the hook
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,7 +35,9 @@ const CreateContract = () => {
       }
 
       const data = await response.json();
-      console.log(data);
+
+      // Navigate to home after successful contract creation
+      navigate("/");
     } catch (error) {
       console.error(error.message);
     }
