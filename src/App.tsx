@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import SmartContractPage from "./pages/SmartContractPage";
-// import About from "./pages/About";
+import LogInPage from "./pages/LogInPage";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
+  { path: "/login", element: <LogInPage /> },
   { path: "/smartcontract/:id", element: <SmartContractPage /> },
-  // { path: "/about", element: <About /> },
 ]);
 
 function App() {

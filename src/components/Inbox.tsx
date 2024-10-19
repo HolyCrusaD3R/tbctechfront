@@ -8,6 +8,9 @@ const Inbox = () => {
         <p>Inbox</p>
       </div>
       <SmartContractMinimized contract={testContract} />
+      <SmartContractMinimized contract={testContract} />
+      <SmartContractMinimized contract={testContract} />
+      <SmartContractMinimized contract={testContract} />
     </div>
   );
 };

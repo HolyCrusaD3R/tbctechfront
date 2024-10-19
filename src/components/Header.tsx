@@ -12,7 +12,7 @@ const Header = () => {
           </div>
         </div>
         <div className="flex flex-row gap-8 justify-end ">
-          <NavBarLinkButton to="/signup">Sign Up</NavBarLinkButton>
+          <NavBarLinkButton to="/">Home</NavBarLinkButton>
           <NavBarLinkButton to="/login">Log In</NavBarLinkButton>
         </div>
       </div>
