@@ -29,8 +29,9 @@ const Inbox = () => {
         }
 
         const data = await response.json();
-        console.log(data.received_contracts);
-        data.issed_contracts ? setIssuedContracts(data.issued_contracts) : null;
+        data.issued_contracts
+          ? setIssuedContracts(data.issued_contracts)
+          : null;
         data.received_contracts
           ? setReceivedContracts(data.received_contracts)
           : null;
