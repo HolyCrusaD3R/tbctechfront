@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import tbcLogo from "../assets/tbcLogo.png";
+import NavBarLinkButton from "./NavBarLinkButton";
 
 const Header = () => {
   return (
@@ -11,13 +11,9 @@ const Header = () => {
             <p>TBC smart contracts</p>
           </div>
         </div>
-        <div className="flex flex-row gap-8 justify-end">
-          <Link to="/signup">
-            <div className="px-4 py-2 rounded-md flex flex-col justify-center">
-              Sign up
-            </div>
-          </Link>
-          <Link to="/login">Login</Link>
+        <div className="flex flex-row gap-8 justify-end ">
+          <NavBarLinkButton to="/signup">Sign Up</NavBarLinkButton>
+          <NavBarLinkButton to="/login">Log In</NavBarLinkButton>
         </div>
       </div>
       <hr />
