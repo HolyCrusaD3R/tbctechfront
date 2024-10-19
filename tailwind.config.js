@@ -7,6 +7,7 @@ export default {
         tbcBlue: "#00A1ED",
         hoverDark: "#2D3142",
         brightRed: "#DB222A",
+        customGrey: "#CCCCCC",
       },
     },
   },
