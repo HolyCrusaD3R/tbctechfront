@@ -24,11 +24,6 @@ const Inbox = () => {
         <p>Inbox</p>
       </div>
       <SmartContractMinimized contract={testContract} />
-      <div className="flex flex-row flex-start text-2xl max-w-[1000px] mx-auto mt-20">
-        <p>Sent</p>
-      </div>
-      <SmartContractMinimized contract={testContract} />
-      <SmartContractMinimized contract={testContract} />
     </div>
   );
 };
